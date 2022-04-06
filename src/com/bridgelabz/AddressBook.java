@@ -1,6 +1,8 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -61,10 +63,10 @@ public class AddressBook {
 		}
 
 	}
-
+	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
 		System.out.println("Welcome to Address Book Program ");
 
 		BookList shelf = new BookList();
@@ -103,14 +105,15 @@ public class AddressBook {
 					break;
 				}
 				System.out
-						.println("Do you want to add/edit/delete the contact (0/1/2) :Press 3 to Go back to main menu");
+						.println("Do you want to add/edit/delete the contact (0/1/2) :Press 3 to Go back to main menu :Press 4 for Sorted List");
 				Scanner scan = new Scanner(System.in);
 				int input = scan.nextInt();
 
 				if (input == 0) {
 
 					addressBook.addContact();
-
+					System.out.println("------------------------");
+					
 				} else if (input == 1) {
 					Scanner scan1 = new Scanner(System.in);
 					System.out.println("Enter the first name of person you to edit ");
@@ -127,6 +130,11 @@ public class AddressBook {
 				else if (input == 3) {
 					shelf.addBook(bookName, addressBook);
 					break;
+				}
+				else if(input == 4) {
+					addressBook.list.sort((Contact x1, Contact x2)->x1.firstName.compareTo(x2.firstName)); 
+				    addressBook.list.forEach((x)->System.out.println(x));
+				    System.out.println("----------------------------------");
 				}
 
 				else {
