@@ -107,7 +107,6 @@ public class BookList {
 						if (condition1 == 0) {
 							System.out.println("Contact doesn't exist with the given name " + name1);
 						}
-
 					}
 				}
 				break;
@@ -134,6 +133,24 @@ public class BookList {
 			case 3:
 				condition = 1;
 				break;
+			case 4:
+				if (books.get(i).list.size() == 0) {
+					System.out.println("Addressbook is empty");
+				}
+				else {
+					Scanner scan = new Scanner(System.in);
+					while (true) {
+						System.out.println(
+								"Press \n 0 to sort by contact name \n 1 to sort by city \n 2 to sort by state \n 3 to sort by zip");
+						int response1 = scan.nextInt();
+						int a = books.get(i).sort(response1, books.get(i));
+						if(a == 0) {
+							break;
+						}
+					}
+
+				}
+				break;	
 			default:
 				System.out.println("Enter valid command");
 				break;
